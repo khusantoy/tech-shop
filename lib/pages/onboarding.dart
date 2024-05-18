@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tech_shop/utils/colors.dart';
+import 'package:tech_shop/utils/extensions.dart';
 import 'package:tech_shop/widgets/onboarding_widget.dart';
+import 'package:tech_shop/widgets/primary_button.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
@@ -48,7 +49,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               height: (MediaQuery.of(context).size.height -
                       AppBar().preferredSize.height -
                       MediaQuery.of(context).viewPadding.top) *
-                  0.6,
+                  0.63,
               child: Stack(
                 children: [
                   Positioned(
@@ -106,9 +107,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                             ),
                           ),
                         ),
-                        const SizedBox(
-                          width: 5,
-                        ),
+                        5.width(),
                         Container(
                           width: index == 1 ? 16 : 8,
                           height: 5,
@@ -121,9 +120,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                             ),
                           ),
                         ),
-                        const SizedBox(
-                          width: 5,
-                        ),
+                        5.width(),
                         Container(
                           width: index == 2 ? 16 : 8,
                           height: 5,
@@ -142,11 +139,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 ],
               ),
             ),
-            const SizedBox(
-              height: 40,
-            ),
+            40.height(),
             Padding(
-              padding: const EdgeInsets.all(30),
+              padding: const EdgeInsets.all(40),
               child: Column(
                 children: [
                   const Text(
@@ -157,13 +152,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       color: AppColors.darkTextColor,
                     ),
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  20.height(),
                   Text(
                     "With long experience in the audio industry, we create the best quality products",
                     style: TextStyle(
-                      fontSize: 17,
+                      fontSize: 14,
                       fontWeight: FontWeight.w500,
                       color: AppColors.darkTextColor.withOpacity(0.6),
                     ),
@@ -172,44 +165,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 ],
               ),
             ),
-            const SizedBox(
-              height: 30,
-            ),
+            20.height(),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
-              child: SizedBox(
-                width: double.infinity,
-                height: 44,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.primaryColor,
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(8),
-                      ),
-                    ),
-                  ),
-                  onPressed: () {},
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const SizedBox(),
-                      const Text(
-                        "GET STARTED",
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w700,
-                          color: AppColors.darkTextColor,
-                          letterSpacing: 1,
-                        ),
-                      ),
-                      SvgPicture.asset(
-                        "assets/images/icons/arrow_long_right.svg",
-                      )
-                    ],
-                  ),
-                ),
-              ),
+              child: PrimaryButton(
+                  text: "get started",
+                  icon: "assets/images/icons/arrow_long_right.svg"),
             )
           ],
         ),
