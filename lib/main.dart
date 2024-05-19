@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tech_shop/pages/onboarding_page.dart';
+import 'package:tech_shop/pages/home_page.dart';
+// import 'package:tech_shop/pages/onboarding_page.dart';
+import 'package:tech_shop/pages/verification_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +15,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'DM Sans'),
-      home: const OnboardingPage(),
+      // home: const OnboardingPage(),
+      home: const HomePage(),
     );
   }
 }

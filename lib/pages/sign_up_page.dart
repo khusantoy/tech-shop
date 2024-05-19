@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tech_shop/pages/sign_in_page.dart';
+import 'package:tech_shop/pages/verification_page.dart';
 import 'package:tech_shop/utils/colors.dart';
 import 'package:tech_shop/utils/extensions.dart';
 
@@ -313,6 +314,16 @@ class _SignUpPageState extends State<SignUpPage> {
                               }
 
                               setState(() {});
+
+                              if (emailError == null &&
+                                  usernameError == null &&
+                                  passwordError == null) {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (ctx) => const VerificationPage(),
+                                  ),
+                                );
+                              }
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
