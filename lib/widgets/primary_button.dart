@@ -5,8 +5,10 @@ import 'package:tech_shop/utils/colors.dart';
 class PrimaryButton extends StatelessWidget {
   String text;
   String icon;
+  Widget page;
 
-  PrimaryButton({required this.text, required this.icon, super.key});
+  PrimaryButton(
+      {required this.text, required this.icon, required this.page, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,9 @@ class PrimaryButton extends StatelessWidget {
             ),
           ),
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => page));
+        },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -37,7 +41,7 @@ class PrimaryButton extends StatelessWidget {
               ),
             ),
             SvgPicture.asset(
-              icon,
+              'assets/images/icons/$icon',
             )
           ],
         ),

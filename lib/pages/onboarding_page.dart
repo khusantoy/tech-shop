@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tech_shop/pages/sign_in_page.dart';
 import 'package:tech_shop/utils/colors.dart';
 import 'package:tech_shop/utils/extensions.dart';
 import 'package:tech_shop/widgets/onboarding_widget.dart';
@@ -169,8 +170,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
               child: PrimaryButton(
-                  text: "get started",
-                  icon: "assets/images/icons/arrow_long_right.svg"),
+                text: "get started",
+                icon: "arrow_long_right.svg",
+                page: const SignInPage(),
+              ),
             )
           ],
         ),
