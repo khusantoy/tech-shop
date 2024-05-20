@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tech_shop/pages/onboarding_page.dart';
-import 'package:tech_shop/pages/order_complete_page.dart';
-import 'package:tech_shop/pages/order_review_page.dart';
-import 'package:tech_shop/pages/user_profile_page.dart';
-import 'package:tech_shop/pages/verification_page.dart';
 
 void main() {
   runApp(const MyApp());

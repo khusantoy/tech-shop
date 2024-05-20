@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tech_shop/main.dart';
 import 'package:tech_shop/pages/cart_page.dart';
 import 'package:tech_shop/pages/home_page.dart';
 import 'package:tech_shop/pages/single_product_page.dart';
