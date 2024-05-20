@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tech_shop/pages/onboarding_page.dart';
+import 'package:tech_shop/pages/order_complete_page.dart';
 import 'package:tech_shop/pages/order_review_page.dart';
 import 'package:tech_shop/pages/verification_page.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(fontFamily: 'DM Sans'),
         // home: const OnboardingPage(),
-        home: const OrderReviewPage(),
+        home: OrderCompletePage(),
       ),
     );
   }
