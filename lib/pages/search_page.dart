@@ -81,7 +81,9 @@ class SearchPage extends StatelessWidget {
                       trailing:
                           SvgPicture.asset('assets/images/icons/close.svg'),
                     ),
-                    const Divider(),
+                    Divider(
+                      color: AppColors.greyTextColor.withOpacity(0.2),
+                    ),
                     ListTile(
                       leading:
                           SvgPicture.asset('assets/images/icons/clock.svg'),
@@ -95,7 +97,9 @@ class SearchPage extends StatelessWidget {
                       trailing:
                           SvgPicture.asset('assets/images/icons/close.svg'),
                     ),
-                    const Divider(),
+                    Divider(
+                      color: AppColors.greyTextColor.withOpacity(0.2),
+                    ),
                     ListTile(
                       leading:
                           SvgPicture.asset('assets/images/icons/clock.svg'),
@@ -109,7 +113,9 @@ class SearchPage extends StatelessWidget {
                       trailing:
                           SvgPicture.asset('assets/images/icons/close.svg'),
                     ),
-                    const Divider(),
+                    Divider(
+                      color: AppColors.greyTextColor.withOpacity(0.2),
+                    ),
                     30.height(),
                     Text(
                       'Popular Searches',
