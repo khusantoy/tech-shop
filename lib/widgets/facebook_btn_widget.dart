@@ -1,47 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tech_shop/utils/colors.dart';
 
-class PrimaryButton extends StatelessWidget {
-  final String text;
-  final String icon;
-  final Function() onPressed;
-
-  const PrimaryButton(
-      {required this.text, required this.icon, required this.onPressed, super.key});
+class FacebookBtnWidget extends StatelessWidget {
+  const FacebookBtnWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 44.h,
+      height: 48.h,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.primaryColor,
+          backgroundColor: const Color(0xFF0002FC),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
               Radius.circular(8.r),
             ),
           ),
         ),
-        onPressed: onPressed,
+        onPressed: () {},
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const SizedBox(),
+            SvgPicture.asset(
+              'assets/images/icons/facebook.svg',
+            ),
             Text(
-              text.toUpperCase(),
+              'Connect with Facebook',
               style: TextStyle(
-                fontSize: 12.sp,
-                fontWeight: FontWeight.w700,
-                color: AppColors.darkTextColor,
+                fontSize: 14.sp,
+                fontWeight: FontWeight.w500,
+                color: Colors.white,
                 letterSpacing: 1.w,
               ),
             ),
-            SvgPicture.asset(
-              'assets/images/icons/$icon',
-            )
+            const SizedBox(),
           ],
         ),
       ),

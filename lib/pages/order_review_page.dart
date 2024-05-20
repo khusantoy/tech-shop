@@ -39,42 +39,39 @@ class OrderReviewPage extends StatelessWidget {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(40),
-            child: Column(
+            padding: const EdgeInsets.symmetric(horizontal: 40),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      'Products',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w700,
-                        color: AppColors.darkTextColor,
-                      ),
-                    ),
-                    InkWell(
-                      child: SvgPicture.asset('assets/images/icons/toggle.svg'),
-                    )
-                  ],
+                const Text(
+                  'Products',
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.darkTextColor,
+                  ),
                 ),
-                Row(
-                  children: [
-                    Column(
-                      children: [
-                        Container(
-                          width: 80,
-                          height: 80,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFF3F6F8)
-                          ),
-                        )
-                      ],
-                    )
-                  ],
+                InkWell(
+                  child: SvgPicture.asset('assets/images/icons/toggle.svg'),
                 )
               ],
             ),
+          ),
+          Row(
+            children: [
+              Column(
+                children: [
+                  Container(
+                    width: 80,
+                    height: 80,
+                    decoration: BoxDecoration(
+                      color:const Color(0xFFF3F6F8),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                  )
+                ],
+              )
+            ],
           )
         ],
       ),

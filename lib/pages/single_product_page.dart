@@ -5,6 +5,8 @@ import 'package:tech_shop/utils/extensions.dart';
 import 'package:tech_shop/utils/sizes.dart';
 
 class SingleProductPage extends StatefulWidget {
+  const SingleProductPage({super.key});
+
   @override
   State<SingleProductPage> createState() => _SingleProductPageState();
 }

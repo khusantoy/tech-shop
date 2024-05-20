@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:tech_shop/pages/sign_in_page.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tech_shop/pages/signin_page.dart';
 import 'package:tech_shop/utils/colors.dart';
 import 'package:tech_shop/utils/extensions.dart';
 import 'package:tech_shop/widgets/onboarding_widget.dart';
 import 'package:tech_shop/widgets/primary_button.dart';
+import 'package:tech_shop/widgets/text_widgets/title_text_widget.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
@@ -54,11 +56,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
               child: Stack(
                 children: [
                   Positioned(
-                    right: -152,
-                    top: 30,
+                    right: -153.w,
+                    top: 16.h,
                     child: Container(
-                      width: 305,
-                      height: 305,
+                      width: 305.w,
+                      height: 305.h,
                       decoration: const BoxDecoration(
                         color: AppColors.primaryColor,
                         shape: BoxShape.circle,
@@ -67,10 +69,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   ),
                   Positioned(
                     bottom: 0,
-                    left: -102,
+                    left: -103.w,
                     child: Container(
-                      width: 205,
-                      height: 205,
+                      width: 205.w,
+                      height: 205.h,
                       decoration: BoxDecoration(
                         color: const Color(0xFF8F92A1).withOpacity(0.4),
                         shape: BoxShape.circle,
@@ -79,7 +81,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   ),
                   PageView(
                     onPageChanged: changeState,
-                    children: [
+                    children: const [
                       OnboardingWidget(
                         imagePath: "assets/images/png/onboarding_image_two.png",
                       ),
@@ -97,40 +99,40 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          width: index == 0 ? 16 : 8,
-                          height: 5,
+                          width: index == 0 ? 16.w : 8.w,
+                          height: 5.h,
                           decoration: BoxDecoration(
                             color: index == 0
                                 ? const Color(0xFFFFDB47)
                                 : const Color(0xFF8F92A1).withOpacity(0.2),
-                            borderRadius: const BorderRadius.all(
-                              Radius.circular(10),
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10.r),
                             ),
                           ),
                         ),
                         5.width(),
                         Container(
-                          width: index == 1 ? 16 : 8,
-                          height: 5,
+                          width: index == 1 ? 16.w : 8.w,
+                          height: 5.h,
                           decoration: BoxDecoration(
                             color: index == 1
                                 ? const Color(0xFFFFDB47)
                                 : const Color(0xFF8F92A1).withOpacity(0.2),
-                            borderRadius: const BorderRadius.all(
-                              Radius.circular(10),
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10.r),
                             ),
                           ),
                         ),
                         5.width(),
                         Container(
-                          width: index == 2 ? 16 : 8,
-                          height: 5,
+                          width: index == 2 ? 16.w : 8.w,
+                          height: 5.h,
                           decoration: BoxDecoration(
                             color: index == 2
                                 ? const Color(0xFFFFDB47)
                                 : const Color(0xFF8F92A1).withOpacity(0.2),
-                            borderRadius: const BorderRadius.all(
-                              Radius.circular(10),
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10.r),
                             ),
                           ),
                         )
@@ -140,24 +142,17 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 ],
               ),
             ),
-            40.height(),
+            const Spacer(),
             Padding(
-              padding: const EdgeInsets.all(40),
+              padding: EdgeInsets.symmetric(horizontal: 40.w),
               child: Column(
                 children: [
-                  const Text(
-                    "Welcome to CaStore !",
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.w700,
-                      color: AppColors.darkTextColor,
-                    ),
-                  ),
-                  20.height(),
+                  const TitleTextWidget(text: 'Welcome to CaStore !'),
+                  16.height(),
                   Text(
                     "With long experience in the audio industry, we create the best quality products",
                     style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 14.sp,
                       fontWeight: FontWeight.w500,
                       color: AppColors.darkTextColor.withOpacity(0.6),
                     ),
@@ -166,13 +161,21 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 ],
               ),
             ),
-            20.height(),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
+              padding: EdgeInsets.symmetric(
+                horizontal: 40.w,
+                vertical: 36.h,
+              ),
               child: PrimaryButton(
                 text: "get started",
                 icon: "arrow_long_right.svg",
-                page: const SignInPage(),
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (ctx) => const SignInPage(),
+                    ),
+                  );
+                },
               ),
             )
           ],

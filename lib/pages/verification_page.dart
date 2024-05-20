@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tech_shop/pages/home_page.dart';
 import 'package:tech_shop/utils/colors.dart';
 import 'package:tech_shop/utils/extensions.dart';
 import 'package:tech_shop/utils/sizes.dart';
+import 'package:tech_shop/widgets/curret_location_widget.dart';
+import 'package:tech_shop/widgets/primary_button.dart';
+import 'package:tech_shop/widgets/text_widgets/subtitle_text_widget.dart';
+import 'package:tech_shop/widgets/text_widgets/title_text_widget.dart';
 
 class VerificationPage extends StatefulWidget {
   const VerificationPage({super.key});
@@ -15,7 +17,10 @@ class VerificationPage extends StatefulWidget {
 class _VerificationPageState extends State<VerificationPage> {
   final formKey = GlobalKey<FormState>();
 
-  List<String> code = ['', '', '', ''];
+  List<TextEditingController> controllers = List.generate(
+    4,
+    (index) => TextEditingController(),
+  );
 
   int codeIndex = 0;
 
@@ -26,235 +31,134 @@ class _VerificationPageState extends State<VerificationPage> {
       backgroundColor: AppColors.scaffoldBackgroundColor,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(
-            left: 40,
-            top: 40,
-            right: 40,
-          ),
+          padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 35),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(
-                flex: 1,
+              const CurretLocationWidget(text: 'Hanoi, Vietnam'),
+              54.height(),
+              const TitleTextWidget(text: 'OTP Authentication'),
+              8.height(),
+              const SubtitleTextWidget(
+                text:
+                    'An authentication code has been sent to (+84) 999 999 999',
+              ),
+              30.height(),
+              Form(
+                key: formKey,
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        SvgPicture.asset("assets/images/icons/location.svg"),
-                        5.width(),
-                        const Text(
-                          'Hanoi, Vietnam',
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w700,
-                            color: AppColors.darkTextColor,
+                        SizedBox(
+                          width: (SizeUtils.screenWidth(context) - 80) * 0.20,
+                          child: TextFormField(
+                            controller: controllers[0],
+                            readOnly: true,
+                            maxLength: 1,
+                            keyboardType: TextInputType.number,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              fontSize: 24,
+                            ),
+                            decoration: InputDecoration(
+                              counterText: "",
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 2,
+                                  color: codeIndex == 0
+                                      ? AppColors.greyTextColor.withOpacity(0.2)
+                                      : AppColors.darkTextColor
+                                          .withOpacity(0.2),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: (SizeUtils.screenWidth(context) - 80) * 0.20,
+                          child: TextFormField(
+                            controller: controllers[1],
+                            readOnly: true,
+                            maxLength: 1,
+                            keyboardType: TextInputType.number,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              fontSize: 24,
+                            ),
+                            decoration: InputDecoration(
+                              counterText: "",
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 2,
+                                  color: codeIndex == 1
+                                      ? AppColors.greyTextColor.withOpacity(0.2)
+                                      : AppColors.darkTextColor
+                                          .withOpacity(0.2),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: (SizeUtils.screenWidth(context) - 80) * 0.20,
+                          child: TextFormField(
+                            controller: controllers[2],
+                            readOnly: true,
+                            maxLength: 1,
+                            keyboardType: TextInputType.number,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              fontSize: 24,
+                            ),
+                            decoration: InputDecoration(
+                              counterText: "",
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 2,
+                                  color: codeIndex == 2
+                                      ? AppColors.greyTextColor.withOpacity(0.2)
+                                      : AppColors.darkTextColor
+                                          .withOpacity(0.2),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: (SizeUtils.screenWidth(context) - 80) * 0.20,
+                          child: TextFormField(
+                            controller: controllers[3],
+                            readOnly: true,
+                            maxLength: 1,
+                            keyboardType: TextInputType.number,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              fontSize: 24,
+                            ),
+                            decoration: InputDecoration(
+                              counterText: "",
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 2,
+                                  color: codeIndex == 3
+                                      ? AppColors.greyTextColor.withOpacity(0.2)
+                                      : AppColors.darkTextColor
+                                          .withOpacity(0.2),
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                       ],
                     ),
-                    60.height(),
-                    const Text(
-                      "OTP Authentication",
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.w700,
-                        color: AppColors.darkTextColor,
-                      ),
-                    ),
-                    20.height(),
-                    Text(
-                      'An authentication code has been sent to (+84) 999 999 999',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                        color: AppColors.darkTextColor.withOpacity(0.6),
-                      ),
-                    ),
-                    40.height(),
-                    Form(
-                      key: formKey,
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              SizedBox(
-                                width: (SizeUtils.screenWidth(context) - 80) *
-                                    0.20,
-                                child: TextFormField(
-                                  initialValue: code[0],
-                                  // readOnly: true,
-                                  maxLength: 1,
-                                  keyboardType: TextInputType.number,
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    fontSize: 24,
-                                  ),
-                                  decoration: InputDecoration(
-                                    counterStyle: const TextStyle(
-                                      height: double.minPositive,
-                                    ),
-                                    counterText: "",
-                                    enabledBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        width: 2,
-                                        color: AppColors.darkTextColor
-                                            .withOpacity(0.2),
-                                      ),
-                                    ),
-                                    focusedBorder: const UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        width: 2,
-                                        color: AppColors.greyTextColor,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                width: (SizeUtils.screenWidth(context) - 80) *
-                                    0.20,
-                                child: TextFormField(
-                                  initialValue: code[1],
-                                  maxLength: 1,
-                                  keyboardType: TextInputType.number,
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    fontSize: 24,
-                                  ),
-                                  decoration: InputDecoration(
-                                    counterStyle: const TextStyle(
-                                      height: double.minPositive,
-                                    ),
-                                    counterText: "",
-                                    enabledBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        width: 2,
-                                        color: AppColors.darkTextColor
-                                            .withOpacity(0.2),
-                                      ),
-                                    ),
-                                    focusedBorder: const UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        width: 2,
-                                        color: AppColors.greyTextColor,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                width: (SizeUtils.screenWidth(context) - 80) *
-                                    0.20,
-                                child: TextFormField(
-                                  initialValue: code[2],
-                                  maxLength: 1,
-                                  keyboardType: TextInputType.number,
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    fontSize: 24,
-                                  ),
-                                  decoration: InputDecoration(
-                                    counterStyle: const TextStyle(
-                                      height: double.minPositive,
-                                    ),
-                                    counterText: "",
-                                    enabledBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        width: 2,
-                                        color: AppColors.darkTextColor
-                                            .withOpacity(0.2),
-                                      ),
-                                    ),
-                                    focusedBorder: const UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        width: 2,
-                                        color: AppColors.greyTextColor,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                width: (SizeUtils.screenWidth(context) - 80) *
-                                    0.20,
-                                child: TextFormField(
-                                  initialValue: code[3],
-                                  maxLength: 1,
-                                  keyboardType: TextInputType.number,
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    fontSize: 24,
-                                  ),
-                                  decoration: InputDecoration(
-                                    counterStyle: const TextStyle(
-                                      height: double.minPositive,
-                                    ),
-                                    counterText: "",
-                                    enabledBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        width: 2,
-                                        color: AppColors.darkTextColor
-                                            .withOpacity(0.2),
-                                      ),
-                                    ),
-                                    focusedBorder: const UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        width: 2,
-                                        color: AppColors.greyTextColor,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          60.height(),
-                          SizedBox(
-                            width: double.infinity,
-                            height: 44,
-                            child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: AppColors.primaryColor,
-                                shape: const RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(8),
-                                  ),
-                                ),
-                              ),
-                              onPressed: () {
-                                if (formKey.currentState!.validate()) {
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (ctx) => HomePage(),
-                                    ),
-                                  );
-                                }
-                              },
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  const SizedBox(),
-                                  const Text(
-                                    'Continue',
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w700,
-                                      color: AppColors.darkTextColor,
-                                      letterSpacing: 1,
-                                    ),
-                                  ),
-                                  SvgPicture.asset(
-                                    'assets/images/icons/arrow_long_right.svg',
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    50.height(),
+                    PrimaryButton(
+                      text: 'Continue',
+                      icon: 'arrow_long_right.svg',
+                      onPressed: () {},
+                    )
                   ],
                 ),
               ),
@@ -272,8 +176,14 @@ class _VerificationPageState extends State<VerificationPage> {
                     children: [
                       TextButton(
                         onPressed: () {
-                          code[codeIndex] = '1';
-                          codeIndex++;
+                          if (codeIndex == -1) {
+                            codeIndex++;
+                          }
+                          if (codeIndex <= 3) {
+                            controllers[codeIndex].text = '1';
+                            codeIndex++;
+                          }
+
                           setState(() {});
                         },
                         child: const Text(
@@ -285,7 +195,17 @@ class _VerificationPageState extends State<VerificationPage> {
                         ),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          if (codeIndex == -1) {
+                            codeIndex++;
+                          }
+                          if (codeIndex <= 3) {
+                            controllers[codeIndex].text = '2';
+                            codeIndex++;
+                          }
+
+                          setState(() {});
+                        },
                         child: const Text(
                           '2',
                           style: TextStyle(
@@ -295,7 +215,16 @@ class _VerificationPageState extends State<VerificationPage> {
                         ),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          if (codeIndex == -1) {
+                            codeIndex++;
+                          }
+                          if (codeIndex <= 3) {
+                            controllers[codeIndex].text = '3';
+                            codeIndex++;
+                          }
+                          setState(() {});
+                        },
                         child: const Text(
                           '3',
                           style: TextStyle(
@@ -305,7 +234,16 @@ class _VerificationPageState extends State<VerificationPage> {
                         ),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          if (codeIndex == -1) {
+                            codeIndex++;
+                          }
+                          if (codeIndex <= 3) {
+                            controllers[codeIndex].text = '4';
+                            codeIndex++;
+                          }
+                          setState(() {});
+                        },
                         child: const Text(
                           '4',
                           style: TextStyle(
@@ -315,7 +253,16 @@ class _VerificationPageState extends State<VerificationPage> {
                         ),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          if (codeIndex == -1) {
+                            codeIndex++;
+                          }
+                          if (codeIndex <= 3) {
+                            controllers[codeIndex].text = '5';
+                            codeIndex++;
+                          }
+                          setState(() {});
+                        },
                         child: const Text(
                           '5',
                           style: TextStyle(
@@ -325,7 +272,16 @@ class _VerificationPageState extends State<VerificationPage> {
                         ),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          if (codeIndex == -1) {
+                            codeIndex++;
+                          }
+                          if (codeIndex <= 3) {
+                            controllers[codeIndex].text = '6';
+                            codeIndex++;
+                          }
+                          setState(() {});
+                        },
                         child: const Text(
                           '6',
                           style: TextStyle(
@@ -335,7 +291,15 @@ class _VerificationPageState extends State<VerificationPage> {
                         ),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          if (codeIndex == -1) {
+                            codeIndex++;
+                          }
+                          if (codeIndex <= 3) {
+                            controllers[codeIndex].text = '7';
+                            codeIndex++;
+                          }
+                        },
                         child: const Text(
                           '7',
                           style: TextStyle(
@@ -345,7 +309,15 @@ class _VerificationPageState extends State<VerificationPage> {
                         ),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          if (codeIndex == -1) {
+                            codeIndex++;
+                          }
+                          if (codeIndex <= 3) {
+                            controllers[codeIndex].text = '8';
+                            codeIndex++;
+                          }
+                        },
                         child: const Text(
                           '8',
                           style: TextStyle(
@@ -355,7 +327,15 @@ class _VerificationPageState extends State<VerificationPage> {
                         ),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          if (codeIndex == -1) {
+                            codeIndex++;
+                          }
+                          if (codeIndex <= 3) {
+                            controllers[codeIndex].text = '9';
+                            codeIndex++;
+                          }
+                        },
                         child: const Text(
                           '9',
                           style: TextStyle(
@@ -366,7 +346,15 @@ class _VerificationPageState extends State<VerificationPage> {
                       ),
                       const SizedBox(),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          if (codeIndex == -1) {
+                            codeIndex++;
+                          }
+                          if (codeIndex <= 3) {
+                            controllers[codeIndex].text = '0';
+                            codeIndex++;
+                          }
+                        },
                         child: const Text(
                           '0',
                           style: TextStyle(
@@ -376,7 +364,15 @@ class _VerificationPageState extends State<VerificationPage> {
                         ),
                       ),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          if (codeIndex == 4) {
+                            codeIndex--;
+                          }
+                          if (codeIndex >= 0) {
+                            controllers[codeIndex--].text = '';
+                            setState(() {});
+                          }
+                        },
                         icon: const Icon(
                           Icons.backspace_outlined,
                           color: AppColors.darkTextColor,

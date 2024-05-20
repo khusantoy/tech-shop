@@ -249,7 +249,7 @@ class MyCartPage extends StatelessWidget {
                       PrimaryButton(
                         text: 'Checkout',
                         icon: 'arrow_long_right.svg',
-                        page: const HomePage(),
+                        onPressed: (){},
                       )
                     ],
                   ),
