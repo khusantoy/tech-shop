@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tech_shop/pages/home_page.dart';
+import 'package:tech_shop/pages/order_review_page.dart';
+import 'package:tech_shop/pages/search_page.dart';
+import 'package:tech_shop/pages/user_profile_page.dart';
 import 'package:tech_shop/utils/colors.dart';
 import 'package:tech_shop/utils/extensions.dart';
 import 'package:tech_shop/widgets/primary_button.dart';
@@ -16,7 +19,9 @@ class MyCartPage extends StatelessWidget {
         backgroundColor: AppColors.scaffoldBackgroundColor,
         leadingWidth: 100,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
           icon: SvgPicture.asset('assets/images/icons/black_arrow_left.svg'),
         ),
         title: const Text(
@@ -245,11 +250,17 @@ class MyCartPage extends StatelessWidget {
                           )
                         ],
                       ),
-                      50.height(),
+                      40.height(),
                       PrimaryButton(
                         text: 'Checkout',
                         icon: 'arrow_long_right.svg',
-                        onPressed: (){},
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (ctx) => const OrderReviewPage(),
+                            ),
+                          );
+                        },
                       )
                     ],
                   ),
@@ -279,7 +290,13 @@ class MyCartPage extends StatelessWidget {
               icon: SvgPicture.asset('assets/images/icons/home.svg'),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (ctx) => const SearchPage(),
+                  ),
+                );
+              },
               icon: SvgPicture.asset('assets/images/icons/search.svg'),
             ),
             IconButton(
@@ -303,7 +320,13 @@ class MyCartPage extends StatelessWidget {
               ),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (ctx) => const UserProfilePage(),
+                  ),
+                );
+              },
               icon: SvgPicture.asset('assets/images/icons/person2.svg'),
             )
           ],

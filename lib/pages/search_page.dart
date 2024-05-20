@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tech_shop/main.dart';
+import 'package:tech_shop/pages/cart_page.dart';
 import 'package:tech_shop/pages/home_page.dart';
+import 'package:tech_shop/pages/single_product_page.dart';
+import 'package:tech_shop/pages/user_profile_page.dart';
 import 'package:tech_shop/utils/colors.dart';
 import 'package:tech_shop/utils/extensions.dart';
 
@@ -131,6 +135,99 @@ class SearchPage extends StatelessWidget {
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(bottom: 20),
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (ctx) => const SingleProductPage(),
+                                ),
+                              );
+                            },
+                            child: Container(
+                              padding: const EdgeInsets.all(15),
+                              width: 145,
+                              height: 209,
+                              decoration: const BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                      'assets/images/png/rounded_shape.png'),
+                                ),
+                              ),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Image.asset('assets/images/png/beosound.png'),
+                                  const Text(
+                                    'Beosound 1',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: AppColors.darkTextColor,
+                                    ),
+                                  ),
+                                  const Text(
+                                    '\$1,600',
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      color: AppColors.darkTextColor,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        20.width(),
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (ctx) => const SingleProductPage(),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.all(15),
+                            width: 145,
+                            height: 209,
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(
+                                    'assets/images/png/rounded_shape.png'),
+                              ),
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Image.asset('assets/images/png/beolit.png'),
+                                const Text(
+                                  'Beosound 17',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    color: AppColors.darkTextColor,
+                                  ),
+                                ),
+                                const Text(
+                                  '\$550',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: AppColors.darkTextColor,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (ctx) => const SingleProductPage(),
+                              ),
+                            );
+                          },
                           child: Container(
                             padding: const EdgeInsets.all(15),
                             width: 145,
@@ -165,101 +262,45 @@ class SearchPage extends StatelessWidget {
                           ),
                         ),
                         20.width(),
-                        Container(
-                          padding: const EdgeInsets.all(15),
-                          width: 145,
-                          height: 209,
-                          decoration: const BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(
-                                  'assets/images/png/rounded_shape.png'),
-                            ),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Image.asset('assets/images/png/beolit.png'),
-                              const Text(
-                                'Beosound 17',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  color: AppColors.darkTextColor,
-                                ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (ctx) => const SingleProductPage(),
                               ),
-                              const Text(
-                                '\$550',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  color: AppColors.darkTextColor,
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                        Container(
-                          padding: const EdgeInsets.all(15),
-                          width: 145,
-                          height: 209,
-                          decoration: const BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(
-                                  'assets/images/png/rounded_shape.png'),
-                            ),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Image.asset('assets/images/png/beosound.png'),
-                              const Text(
-                                'Beosound 1',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  color: AppColors.darkTextColor,
-                                ),
+                            );
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.all(15),
+                            width: 145,
+                            height: 209,
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(
+                                    'assets/images/png/rounded_shape.png'),
                               ),
-                              const Text(
-                                '\$1,600',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  color: AppColors.darkTextColor,
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                        20.width(),
-                        Container(
-                          padding: const EdgeInsets.all(15),
-                          width: 145,
-                          height: 209,
-                          decoration: const BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(
-                                  'assets/images/png/rounded_shape.png'),
                             ),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Image.asset('assets/images/png/beolit.png'),
-                              const Text(
-                                'Beosound 17',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  color: AppColors.darkTextColor,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Image.asset('assets/images/png/beolit.png'),
+                                const Text(
+                                  'Beosound 17',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    color: AppColors.darkTextColor,
+                                  ),
                                 ),
-                              ),
-                              const Text(
-                                '\$550',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  color: AppColors.darkTextColor,
-                                ),
-                              )
-                            ],
+                                const Text(
+                                  '\$550',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: AppColors.darkTextColor,
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ],
@@ -311,11 +352,23 @@ class SearchPage extends StatelessWidget {
               ),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (ctx) => const MyCartPage(),
+                  ),
+                );
+              },
               icon: SvgPicture.asset('assets/images/icons/shopping.svg'),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (ctx) => const UserProfilePage(),
+                  ),
+                );
+              },
               icon: SvgPicture.asset('assets/images/icons/person2.svg'),
             )
           ],

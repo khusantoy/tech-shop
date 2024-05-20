@@ -4,16 +4,14 @@ import 'package:tech_shop/pages/modal_content.dart';
 import 'package:tech_shop/utils/colors.dart';
 import 'package:tech_shop/utils/extensions.dart';
 
-class SearchResultPage extends StatefulWidget {
-  const SearchResultPage({super.key});
+class CategoriesPage extends StatefulWidget {
+  const CategoriesPage({super.key});
 
   @override
-  State<SearchResultPage> createState() => _SearchResultPageState();
+  State<CategoriesPage> createState() => _CategoriesPageState();
 }
 
-class _SearchResultPageState extends State<SearchResultPage> {
-  
-
+class _CategoriesPageState extends State<CategoriesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +46,9 @@ class _SearchResultPageState extends State<SearchResultPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
                               icon: SvgPicture.asset(
                                 'assets/images/icons/arrow_long_left.svg',
                               ),

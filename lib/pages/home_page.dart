@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tech_shop/pages/cart_page.dart';
+import 'package:tech_shop/pages/categories_page.dart';
 import 'package:tech_shop/pages/search_page.dart';
+import 'package:tech_shop/pages/single_product_page.dart';
+import 'package:tech_shop/pages/user_profile_page.dart';
 import 'package:tech_shop/utils/colors.dart';
 import 'package:tech_shop/utils/extensions.dart';
 
@@ -44,92 +48,114 @@ class HomePage extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 40),
                   child: Row(
                     children: [
-                      Container(
-                        width: 205,
-                        height: 248,
-                        decoration: const BoxDecoration(color: Colors.white),
-                        child: Stack(
-                          children: [
-                            Align(
-                              alignment: Alignment.bottomCenter,
-                              child: Image.asset('assets/images/png/shape.png'),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (ctx) => const CategoriesPage(),
                             ),
-                            Align(
-                              alignment: Alignment.topCenter,
-                              child:
-                                  Image.asset('assets/images/png/speakers.png'),
-                            ),
-                            const Positioned(
-                              bottom: 50,
-                              left: 66,
-                              child: Text(
-                                'Speakers',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w700,
-                                  color: AppColors.darkTextColor,
+                          );
+                        },
+                        child: Container(
+                          width: 205,
+                          height: 248,
+                          decoration: const BoxDecoration(color: Colors.white),
+                          child: Stack(
+                            children: [
+                              Align(
+                                alignment: Alignment.bottomCenter,
+                                child:
+                                    Image.asset('assets/images/png/shape.png'),
+                              ),
+                              Align(
+                                alignment: Alignment.topCenter,
+                                child: Image.asset(
+                                    'assets/images/png/speakers.png'),
+                              ),
+                              const Positioned(
+                                bottom: 50,
+                                left: 66,
+                                child: Text(
+                                  'Speakers',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w700,
+                                    color: AppColors.darkTextColor,
+                                  ),
                                 ),
                               ),
-                            ),
-                            const Positioned(
-                              bottom: 20,
-                              left: 66,
-                              child: Text(
-                                '100+ Product',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                  color: AppColors.darkTextColor,
+                              const Positioned(
+                                bottom: 20,
+                                left: 66,
+                                child: Text(
+                                  '100+ Product',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                    color: AppColors.darkTextColor,
+                                  ),
                                 ),
-                              ),
-                            )
-                          ],
+                              )
+                            ],
+                          ),
                         ),
                       ),
                       20.width(),
-                      Container(
-                        width: 205,
-                        height: 248,
-                        decoration: const BoxDecoration(color: Colors.white),
-                        child: Stack(
-                          children: [
-                            Align(
-                              alignment: Alignment.bottomCenter,
-                              child: Image.asset('assets/images/png/shape.png'),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (ctx) => const CategoriesPage(),
                             ),
-                            Align(
-                              alignment: Alignment.topCenter,
-                              child: Padding(
-                                padding: const EdgeInsets.all(12),
-                                child: Image.asset(
-                                    'assets/images/png/headphone.png'),
+                          );
+                        },
+                        child: Container(
+                          width: 205,
+                          height: 248,
+                          decoration: const BoxDecoration(color: Colors.white),
+                          child: Stack(
+                            children: [
+                              Align(
+                                alignment: Alignment.bottomCenter,
+                                child:
+                                    Image.asset('assets/images/png/shape.png'),
                               ),
-                            ),
-                            const Positioned(
-                              bottom: 50,
-                              left: 66,
-                              child: Text(
-                                'Speakers',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w700,
-                                  color: AppColors.darkTextColor,
+                              Align(
+                                alignment: Alignment.topCenter,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(12),
+                                  child: Image.asset(
+                                      'assets/images/png/headphone.png'),
                                 ),
                               ),
-                            ),
-                            const Positioned(
-                              bottom: 20,
-                              left: 66,
-                              child: Text(
-                                '25+ Product',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                  color: AppColors.darkTextColor,
+                              const Positioned(
+                                bottom: 50,
+                                left: 66,
+                                child: Text(
+                                  'Speakers',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w700,
+                                    color: AppColors.darkTextColor,
+                                  ),
                                 ),
                               ),
-                            )
-                          ],
+                              const Positioned(
+                                bottom: 20,
+                                left: 66,
+                                child: Text(
+                                  '25+ Product',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                    color: AppColors.darkTextColor,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       )
                     ],
@@ -156,6 +182,98 @@ class HomePage extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(bottom: 20),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (ctx) => const SingleProductPage(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.all(15),
+                          width: 145,
+                          height: 209,
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(
+                                  'assets/images/png/rounded_shape.png'),
+                            ),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Image.asset('assets/images/png/beosound.png'),
+                              const Text(
+                                'Beosound 1',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: AppColors.darkTextColor,
+                                ),
+                              ),
+                              const Text(
+                                '\$1,600',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: AppColors.darkTextColor,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    20.width(),
+                    InkWell(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (ctx) => const SingleProductPage(),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.all(15),
+                        width: 145,
+                        height: 209,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(
+                                'assets/images/png/rounded_shape.png'),
+                          ),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Image.asset('assets/images/png/beolit.png'),
+                            const Text(
+                              'Beosound 17',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.darkTextColor,
+                              ),
+                            ),
+                            const Text(
+                              '\$550',
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: AppColors.darkTextColor,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (ctx) => const SingleProductPage(),
+                          ),
+                        );
+                      },
                       child: Container(
                         padding: const EdgeInsets.all(15),
                         width: 145,
@@ -190,101 +308,45 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     20.width(),
-                    Container(
-                      padding: const EdgeInsets.all(15),
-                      width: 145,
-                      height: 209,
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          image:
-                              AssetImage('assets/images/png/rounded_shape.png'),
-                        ),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Image.asset('assets/images/png/beolit.png'),
-                          const Text(
-                            'Beosound 17',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color: AppColors.darkTextColor,
-                            ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (ctx) => const SingleProductPage(),
                           ),
-                          const Text(
-                            '\$550',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: AppColors.darkTextColor,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.all(15),
-                      width: 145,
-                      height: 209,
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          image:
-                              AssetImage('assets/images/png/rounded_shape.png'),
-                        ),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Image.asset('assets/images/png/beosound.png'),
-                          const Text(
-                            'Beosound 1',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color: AppColors.darkTextColor,
-                            ),
+                        );
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.all(15),
+                        width: 145,
+                        height: 209,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(
+                                'assets/images/png/rounded_shape.png'),
                           ),
-                          const Text(
-                            '\$1,600',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: AppColors.darkTextColor,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    20.width(),
-                    Container(
-                      padding: const EdgeInsets.all(15),
-                      width: 145,
-                      height: 209,
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          image:
-                              AssetImage('assets/images/png/rounded_shape.png'),
                         ),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Image.asset('assets/images/png/beolit.png'),
-                          const Text(
-                            'Beosound 17',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color: AppColors.darkTextColor,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Image.asset('assets/images/png/beolit.png'),
+                            const Text(
+                              'Beosound 17',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.darkTextColor,
+                              ),
                             ),
-                          ),
-                          const Text(
-                            '\$550',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: AppColors.darkTextColor,
-                            ),
-                          )
-                        ],
+                            const Text(
+                              '\$550',
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: AppColors.darkTextColor,
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ],
@@ -334,11 +396,23 @@ class HomePage extends StatelessWidget {
               icon: SvgPicture.asset('assets/images/icons/search.svg'),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (ctx) => const MyCartPage(),
+                  ),
+                );
+              },
               icon: SvgPicture.asset('assets/images/icons/shopping.svg'),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (ctx) => const UserProfilePage(),
+                  ),
+                );
+              },
               icon: SvgPicture.asset('assets/images/icons/person2.svg'),
             )
           ],

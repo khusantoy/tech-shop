@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tech_shop/pages/order_complete_page.dart';
 import 'package:tech_shop/utils/colors.dart';
 import 'package:tech_shop/utils/extensions.dart';
 import 'package:tech_shop/widgets/divider_widget.dart';
@@ -17,7 +18,9 @@ class OrderReviewPage extends StatelessWidget {
         backgroundColor: AppColors.scaffoldBackgroundColor,
         leadingWidth: 100.w,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
           icon: SvgPicture.asset('assets/images/icons/black_arrow_left.svg'),
         ),
         title: Text(
@@ -314,7 +317,13 @@ class OrderReviewPage extends StatelessWidget {
                   PrimaryButton(
                     text: 'Checkout',
                     icon: 'arrow_long_right.svg',
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (ctx) => const OrderCompletePage(),
+                        ),
+                      );
+                    },
                   )
                 ],
               ),

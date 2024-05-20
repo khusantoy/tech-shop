@@ -17,7 +17,9 @@ class OrderCompletePage extends StatelessWidget {
         backgroundColor: AppColors.scaffoldBackgroundColor,
         leadingWidth: 100.w,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
           icon: SvgPicture.asset('assets/images/icons/black_arrow_left.svg'),
         ),
         title: Text(
