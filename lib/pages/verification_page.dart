@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tech_shop/pages/home_page.dart';
 import 'package:tech_shop/utils/colors.dart';
 import 'package:tech_shop/utils/extensions.dart';
 import 'package:tech_shop/utils/sizes.dart';
@@ -16,6 +17,8 @@ class VerificationPage extends StatefulWidget {
 
 class _VerificationPageState extends State<VerificationPage> {
   final formKey = GlobalKey<FormState>();
+
+  bool isNotFilled = false;
 
   List<TextEditingController> controllers = List.generate(
     4,
@@ -153,11 +156,32 @@ class _VerificationPageState extends State<VerificationPage> {
                         ),
                       ],
                     ),
-                    50.height(),
+                    10.height(),
+                    isNotFilled
+                        ? const Text(
+                            'Fill the code',
+                            style: TextStyle(fontSize: 14, color: Colors.red),
+                          )
+                        : const Text(''),
+                    30.height(),
                     PrimaryButton(
                       text: 'Continue',
                       icon: 'arrow_long_right.svg',
-                      onPressed: () {},
+                      onPressed: () {
+                        if (controllers[0].text != '' &&
+                            controllers[1].text != '' &&
+                            controllers[2].text != '' &&
+                            controllers[3].text != '') {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (ctx) => const HomePage(),
+                            ),
+                          );
+                        } else {
+                          isNotFilled = true;
+                          setState(() {});
+                        }
+                      },
                     )
                   ],
                 ),
