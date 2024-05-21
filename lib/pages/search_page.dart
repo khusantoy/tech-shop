@@ -7,8 +7,15 @@ import 'package:tech_shop/pages/user_profile_page.dart';
 import 'package:tech_shop/utils/colors.dart';
 import 'package:tech_shop/utils/extensions.dart';
 
-class SearchPage extends StatelessWidget {
+class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
+
+  @override
+  State<SearchPage> createState() => _SearchPageState();
+}
+
+class _SearchPageState extends State<SearchPage> {
+  List<String> histories = ['Beosound 1', 'Beosound Balance', 'Beolit 17'];
 
   @override
   Widget build(BuildContext context) {
@@ -71,54 +78,36 @@ class SearchPage extends StatelessWidget {
                       ),
                     ),
                     10.height(),
-                    ListTile(
-                      leading:
-                          SvgPicture.asset('assets/images/icons/clock.svg'),
-                      title: const Text(
-                        'Beosound 1',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700,
-                        ),
+                    for (var history in histories)
+                      Column(
+                        children: [
+                          ListTile(
+                            leading: SvgPicture.asset(
+                                'assets/images/icons/clock.svg'),
+                            title: Text(
+                              history,
+                              style: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                            trailing: InkWell(
+                              onTap: () {
+                                if (histories.isNotEmpty) {
+                                  histories.removeLast();
+                                }
+                                setState(() {});
+                              },
+                              child: SvgPicture.asset(
+                                'assets/images/icons/close.svg',
+                              ),
+                            ),
+                          ),
+                          Divider(
+                            color: AppColors.greyTextColor.withOpacity(0.2),
+                          ),
+                        ],
                       ),
-                      trailing:
-                          SvgPicture.asset('assets/images/icons/close.svg'),
-                    ),
-                    Divider(
-                      color: AppColors.greyTextColor.withOpacity(0.2),
-                    ),
-                    ListTile(
-                      leading:
-                          SvgPicture.asset('assets/images/icons/clock.svg'),
-                      title: const Text(
-                        'Beosound Balance',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                      trailing:
-                          SvgPicture.asset('assets/images/icons/close.svg'),
-                    ),
-                    Divider(
-                      color: AppColors.greyTextColor.withOpacity(0.2),
-                    ),
-                    ListTile(
-                      leading:
-                          SvgPicture.asset('assets/images/icons/clock.svg'),
-                      title: const Text(
-                        'Beolit 17',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                      trailing:
-                          SvgPicture.asset('assets/images/icons/close.svg'),
-                    ),
-                    Divider(
-                      color: AppColors.greyTextColor.withOpacity(0.2),
-                    ),
                     30.height(),
                     Text(
                       'Popular Searches',
